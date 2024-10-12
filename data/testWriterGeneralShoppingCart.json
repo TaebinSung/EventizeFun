@@ -1,0 +1,20 @@
+{
+    "shoppingCartItems": [
+        {
+            "numTicketsSold": 0,
+            "ticketPrice": 15,
+            "organizer": "Org1",
+            "eventName": "Fun party",
+            "numTotalTickets": 100
+        },
+        {
+            "numTicketsSold": 0,
+            "ticketPrice": 1,
+            "organizer": "Org2",
+            "eventName": "Bad party",
+            "numTotalTickets": 5
+        }
+    ],
+    "numItems": 2,
+    "checkoutPrice": 16
+}

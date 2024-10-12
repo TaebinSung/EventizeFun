@@ -1,0 +1,20 @@
+{
+  "shoppingCartItems": [
+    {
+      "numTicketsSold": 0,
+      "ticketPrice": 10,
+      "organizer": "Taebin",
+      "eventName": "House party",
+      "numTotalTickets": 50
+    },
+    {
+      "numTicketsSold": 0,
+      "ticketPrice": 25,
+      "organizer": "Rita",
+      "eventName": "Halloween party",
+      "numTotalTickets": 40
+    }
+  ],
+  "numItems": 2,
+  "checkoutPrice": 35
+}

@@ -1,0 +1,242 @@
+account
+
+
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+}
+
+CUSTOMER
+
+    this.tickets = new ArrayList<>();
+    private ArrayList<Ticket> tickets;
+
+    public Ticket chooseTicketFromCart(int index) {
+        return tickets.get(index);
+    }
+    public void removeItem(Event event) {
+        //STUB
+    }
+
+    public String showTickets() {
+        return ""; //STUB
+    }
+
+    public double getTicketPurchasedPrice(Event event) {
+        return 0; //STUB
+    }
+
+    public String showShoppingCart() {
+        return ""; //STUB
+    }
+
+    ***EVENT***
+        private static final double EARLY_BIRD_RATE = 0.7;
+        private static final double LAST_DAY_RATE = 1.5;
+    private ArrayList<Customer> ticketHolders;
+    private LocalDateTime saleStartDate;
+    private LocalDateTime saleEndDate;
+    private LocalDateTime currentDateTime;
+    private boolean hasSeats;
+
+    public void addTicketHolders(Customer customer) {
+        this.ticketHolders.add(customer);
+        organizer.addIncome(getTicketPrice());
+    }
+
+    public ArrayList<Customer> getTicketHolders() {
+        return this.ticketHolders;
+    }
+
+            this.currentDateTime = LocalDateTime.now();
+    //        this.saleStartDate = saleStartDate;
+    //        this.saleEndDate = saleEndDate;
+    //        this.hasSeats = hasSeats;
+
+
+
+    public LocalDateTime getSaleStartDate() {
+        return saleStartDate;
+    }
+
+    public void setSaleStartDate(LocalDateTime saleStartDate) {
+        this.saleStartDate = saleStartDate;
+    }
+
+    public LocalDateTime getSaleEndDate() {
+        return saleEndDate;
+    }
+
+    public void setSaleEndDate(LocalDateTime saleEndDate) {
+        this.saleEndDate = saleEndDate;
+    }
+
+    public boolean isHasSeats() {
+        return hasSeats;
+    }
+
+    public void setHasSeats(boolean hasSeats) {
+        this.hasSeats = hasSeats;
+    }
+    public void removeTicketHolders(Customer customer) {
+        this.ticketHolders.remove(customer);
+        organizer.removeIncome(customer.getTicketPurchasedPrice(this));
+    }
+
+    public double getTicketPrice() {
+        LocalDateTime earlyBirdSaleDate = saleStartDate.plusDays(3);
+        LocalDateTime lastDayRate = saleEndDate.minusDays(2);
+        if (currentDateTime.isBefore(earlyBirdSaleDate)) {
+            return getEarlyBirdTicketPrice();
+        } else if (currentDateTime.isBefore(lastDayRate)) {
+            return getLastDayTicketPrice();
+        }
+        return ticketPrice;
+    }
+
+
+    public double getEarlyBirdTicketPrice() {
+        return this.ticketPrice *= (1 - EARLY_BIRD_RATE);
+    }
+
+    public double getLastDayTicketPrice() {
+        return this.ticketPrice *= LAST_DAY_RATE;
+    }
+
+    SHOPPING CART
+
+    public ArrayList<Ticket> generateTicket() {
+        ArrayList<Ticket> boughtTickets = new ArrayList<>();
+        for (Event i: cartItems) {
+            if (i.isHasSeats()) {
+                boughtTickets.add(new Ticket(i, ""));
+            } else {
+                boughtTickets.add(new Ticket(i));
+            }
+        }
+        return boughtTickets;
+    }
+
+    public ArrayList<Ticket> checkout() {
+        pay();
+        boolean paid = checkPaid();
+        if (paid && !cartItems.isEmpty()) {
+
+            generateTicket();
+        }
+        return generateTicket();
+    }
+
+
+    ORGANIZER
+
+    public double getIncome() {
+        return income;
+    }
+
+    public void removeIncome(double ticketPrice) {
+        this.income -= ticketPrice;
+    }
+
+
+    SHOPPING CART
+
+
+    public  void removeItem(Event event) {
+        this.cartItems.remove(event);
+        this.numItems--;
+    }
+
+    public int getNumItems() {
+        return numItems;
+    }
+
+    public void pay() {
+        this.checkoutPrice = 0;
+    }
+
+    public boolean checkPaid() {
+        return this.checkoutPrice == 0;
+    }
+
+
+
+    EVENTIZE FUN
+
+
+
+//****************************
+// FOR FURTHER IMPLEMENTATION
+//****************************
+
+//    private  void displayShoppingCartPage() {
+//        System.out.println("\tr -> Remove Event");
+//        System.out.println("\tc -> Checkout");
+//        System.out.println("\tb -> Back");
+//    }
+
+
+//    private void displayMainPage() {
+//        System.out.println("\nWelcome to EventizeFun");
+//        System.out.println("\nSelect from:");
+//        System.out.println("\tl -> Login");
+//        System.out.println("\tm -> Make account");
+//        System.out.println("\tv -> View Events Available");
+//        System.out.println("\tq -> quit");
+//    }
+
+//    private void processHomePageCommand(String command) {
+//        switch (command) {
+//            case "l":
+//                logIn();
+//                break;
+//            case "m":
+//                makeAccount();
+//                break;
+//            case "v":
+//                viewEvents();
+//                break;
+//            default:
+//                System.out.println("Selection not valid...");
+//        }
+//    }
+
+//    private void logIn() {
+//    }
+//
+//    private void makeAccount() {
+//    }
+//
+//        System.out.println("**SaleStartDate**");
+//        System.out.println("**SaleEndDate**");
+//        System.out.println("Enter year:");
+//        System.out.println("Enter seconds:");
+//        System.out.println("Enter month:");
+//        System.out.println("Enter day:");
+//        System.out.println("Enter minute:");
+//        System.out.println("Enter seconds:");
+
+
+}
+
+
