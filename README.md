@@ -51,7 +51,7 @@ Fri Dec 01 16:25:44 PST 2023--> Loaded Rita's ShoppingCart
 
 
 # Reflection
-If I had more time to work on this project (which I will continuously),
+If I had more time to work on this project (which I will continuously contribute),
 First of all i want to refactor codes so that the Customer model does not contain the save to Json functionality.
 I will extract codes and make a new class to represent a customer being able to save to Json.
 
